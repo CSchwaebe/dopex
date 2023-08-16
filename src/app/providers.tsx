@@ -1,5 +1,7 @@
 "use client";
 
+import { NextUIProvider } from "@nextui-org/react";
+
 import * as React from "react";
 import {
   RainbowKitProvider,
@@ -68,16 +70,22 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider theme={darkTheme({
-      accentColor: '#002EEF',
-      //accentColorForeground: 'white',
-      borderRadius: 'large',
-      fontStack: 'rounded',
-      overlayBlur: 'small',
-    })} chains={chains} appInfo={demoAppInfo}>
-        {mounted && children}
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <NextUIProvider>
+      <WagmiConfig config={wagmiConfig}>
+        <RainbowKitProvider
+          theme={darkTheme({
+            accentColor: "#002EEF",
+            //accentColorForeground: 'white',
+            borderRadius: "large",
+            fontStack: "rounded",
+            overlayBlur: "small",
+          })}
+          chains={chains}
+          appInfo={demoAppInfo}
+        >
+          {mounted && children}
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </NextUIProvider>
   );
 }

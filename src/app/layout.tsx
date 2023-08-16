@@ -2,7 +2,7 @@
 // ========================================================
 import { Providers } from "./providers";
 import './globals.css';
-import Header from "./components/header";
+import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import '@rainbow-me/rainbowkit/styles.css';
 import type { Metadata } from "next";
@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="mytheme">
+    <html lang="en" >
         <head />
-        <body className="bg-base-100">
+        <body  className="dark text-foreground bg-background">
           <Providers>
-            <Header />
+            <Navbar />
             <Background>{children}</Background>
             <Footer />
           </Providers>
@@ -34,3 +34,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+/*
+style={{"background": "linear-gradient(270deg, rgba(235,237,251,1) 0%, rgba(243,244,249,1) 100%)"}} 
+*/

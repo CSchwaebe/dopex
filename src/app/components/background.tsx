@@ -13,13 +13,16 @@ export default function Background({
 }) {
   return (
     <div
-      className="w-1/1 min-h-screen "
-      style={{
-        background:
-          "linear-gradient(270deg, rgba(30,39,53,1) 0%, rgba(27,33,47,1) 100%)",
-      }}
+      className="w-1/1 min-h-screen bg-background text-foreground"
+      
     >
       {children}
     </div>
   );
 }
+/*
+style={{
+  background:
+    "linear-gradient(270deg,  rgba(27,33,47,1) 0%, rgba(30,39,53,1) 100%)",
+}}
+*/

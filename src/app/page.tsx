@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import SSOV from './components/ssov'
+import Trade from './components/trade'
 
 export default function Home() {
   return (
    <div>
-    <SSOV />
+    <Trade />
    </div>
   )
 }

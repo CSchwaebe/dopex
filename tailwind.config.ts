@@ -1,11 +1,15 @@
 import type { Config } from 'tailwindcss'
+const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
+
+  /*
   theme: {
     extend: {
       backgroundImage: {
@@ -15,21 +19,43 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          "primary": "#a991f7",
-          "secondary": "#0F2DF5",
-          "accent": "#02061f",
-          "neutral": "#3b475d",
-          "base-100": "#252e42",
+  */
+  darkMode: "class",
+  plugins: [
+    nextui({
+      prefix: "nextui", // prefix for themes variables
+      addCommonColors: true, // override common colors (e.g. "blue", "green", "pink").
+      defaultTheme: "dark", // default theme from the themes object
+      defaultExtendTheme: "dark", // default theme to extend on custom themes
+      layout: {}, // common layout tokens (applied to all themes)
+      themes: {
+        light: {
+          layout: {}, // light theme layout tokens
+          colors: {}, // light theme colors
         },
+        dark: {
+          layout: {}, // dark theme layout tokens
+          colors: {
+            background: "#1A212B",
+            foreground: "#ECEDEE",
+            default: "#252e42",
+            primary: "#a991f7",
+            secondary: "#0F2DF5",
+            neutral: "#222935",
+            //success: ColorScale,
+            //warning: ColorScale,
+            //danger: ColorScale,
+
+           
+            
+            //"accent": "#02061f",
+            //"neutral": "#3b475d",
+            
+          }, // dark theme colors
+        },
+        // ... custom themes
       },
-      "dark",
-      "night",
-    ],
-  },
+    }),
+  ],
 }
 export default config

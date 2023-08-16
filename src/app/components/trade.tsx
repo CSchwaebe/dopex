@@ -3,31 +3,16 @@
 
 import React, { useEffect, useState } from 'react';
 import { usePrepareContractWrite, useContractWrite, useContractRead, useAccount } from "wagmi";
-import Loading from '../components/loading';
+import Loading from './loading';
+import { Arbitrum,  } from "../constants/addresses/minimized"
+import SingleAssetPage from './singleAssetPage';
 
 export default function SSOV() {
-    const [isLoading, setLoading] = useState(true)
-    const [arbitrumSSOVs, setArbitrumSSOVs] = useState([])
-    const [polygonSSOVs, setPolygonSSOVs] = useState([])
-
+    const [isLoading, setLoading] = useState(false)
+    const [activeAsset, setActiveAsset] = useState("Ethereum")
     const { address, isConnecting, isDisconnected } = useAccount()
 
-    /*
-    useEffect(() => {
-        setLoading(true)
-        fetch('https://api.dopex.io/v2/ssov', { next: { revalidate: 10 } })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data)
-                setArbitrumSSOVs(data['42161'])
-                setPolygonSSOVs(data['137'])
-                data['42161'].map((ssov) => {
-                    console.log(ssov.underlyingSymbol)
-                })
-                setLoading(false)
-            })
-    }, [])
-    */
+
 
 
     /*****************************************************************
@@ -40,7 +25,13 @@ export default function SSOV() {
     * The following functions are used to render components *
     *****************************************************************/
 
-    function SSOVCard(ssov) {
+    function SingleAsset(asset) {
+       
+
+
+        return (
+           <div></div>
+        )
 
     }
 
@@ -59,9 +50,11 @@ export default function SSOV() {
    
 
     return (
-        <div className="p-8 w-full">
-            
-           
+        <div className="py-4 px-8 w-full">
+            <div className='max-w-2xl'>
+                <SingleAssetPage asset={activeAsset} />
+
+            </div>
         </div>
     )
 
