@@ -72,6 +72,8 @@ export default function Chart({ market }) {
       chartRef.current.subscribeCrosshairMove((param) => {
         if (!param.time || !param.seriesData || param.seriesData.size === 0) {
           //tooltipEl.style.display = "none";
+          dateTooltipEl.style.display = "none";
+
           return;
         }
 
