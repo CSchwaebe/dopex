@@ -4,7 +4,7 @@
 // ========================================================
 import React from 'react';
 
-// Page
+// Component
 // ========================================================
 export default function loading() {
     // State / Props

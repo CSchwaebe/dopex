@@ -6,6 +6,7 @@ import React from "react";
 import Image from "next/image";
 import logo from "src/assets/logo.svg";
 import twitter from "src/assets/twitter.svg";
+import { Card } from "@nextui-org/react";
 
 // Page
 // ========================================================
@@ -14,26 +15,31 @@ export default function Footer() {
 
   // Render
   return (
-    <div>
-      <footer className="footer footer-center p-10 glass text-primary-content bg-accent bg-none">
-        <div>
-        <Image priority className="w-9" src={logo} alt="Dopex Logo" />
+    <Card radius="none" shadow="none" className="bg-background">
+      <footer className="p-10 text-foreground">
+        <div className="text-center">
+          <div className="flex justify-center">
+            <Image
+              priority
+              className="w-9 flex-none"
+              src={logo}
+              alt="Dopex Logo"
+            />
+          </div>
 
-          <p className="font-bold text-neutral">
-            DOPEX <br />
-            
+          <p className="font-bold text-zinc-400">
+            <br />
           </p>
-          <p className="text-neutral">Copyright © 2023 - All right reserved</p>
+          <p className="text-zinc-400">Copyright © 2023 - All right reserved</p>
         </div>
         <div>
-          <div className="grid grid-flow-col gap-4">
-            <a href="https://twitter.com/fantasyprem_xyz">
-            <Image priority className="" src={twitter} alt="Twitter Logo" />
-
+          <div className="flex justify-center pt-4">
+            <a href="https://twitter.com/dopex_io" className="flex-none">
+              <Image priority className="" src={twitter} alt="Twitter Logo" />
             </a>
           </div>
         </div>
       </footer>
-    </div>
+    </Card>
   );
 }

@@ -10,16 +10,15 @@ import {
 } from "@nextui-org/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
-export default function AssetSelectDropdown() {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Ethereum"]));
+export default function AssetSelectDropdown({ selectedAsset, setSelectedAsset }) {
+  //const [selectedAsset, setSelectedAsset] = React.useState("Ethereum");
 
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys]
+  /*  
+  const selectedAssetValue = React.useMemo(
+    () => Array.from(selectedAsset).join(", ").replaceAll("_", " "),
+    [selectedAsset]
   );
-
-  const iconClasses =
-    "text-xl text-default-500 pointer-events-none flex-shrink-0";
+  */
 
   return (
     <Dropdown
@@ -35,25 +34,33 @@ export default function AssetSelectDropdown() {
           variant="light"
           className="capitalize text-2xl font-bold py-6 px-6"
         >
-          {selectedValue || "Select Asset"}
+          {selectedAsset || "Select Asset"}
           <ChevronDownIcon className="h-4 w-4" />
         </Button>
       </DropdownTrigger>
       <DropdownMenu
         variant="faded"
         selectionMode="single"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
+        selectedKeys={selectedAsset}
+        onAction={setSelectedAsset}
         aria-label="Dropdown menu with description"
       >
         {/* Markets */}
         <DropdownSection title="Markets">
-          <DropdownItem key="Ethereum" description="ETH / USDC">
+          <DropdownItem
+            key="ethereum"
+            description="ETH / USDC"
+          >
             Ethereum
           </DropdownItem>
-        </DropdownSection>
 
-        
+          <DropdownItem
+            key="bitcoin"
+            description="BTC / USDC"
+          >
+            Bitcoin
+          </DropdownItem>
+        </DropdownSection>
       </DropdownMenu>
     </Dropdown>
   );

@@ -21,26 +21,36 @@ export default function App() {
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full" height={"5rem"} position="sticky">
-      {/* Logo and Hamburger */}
+      {/* Hamburger */}
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
+          className="lg:hidden"
         />
-        <NavbarBrand>
-          <Image priority className="w-10" src={logo} alt="Dopex Logo" />
-          <p className="font-bold text-inherit pl-2 antialiased hidden md:flex">
-            DOPEX
-          </p>
+        <NavbarBrand className="hidden lg:flex gap-4">
+          <a className="font-bold text-inherit antialiased hover:cursor-pointer">
+                      <Image priority className="w-10" src={logo} alt="Dopex Logo" />
+
+          </a>
         </NavbarBrand>
       </NavbarContent>
 
+      <NavbarContent className="flex lg:hidden gap-4" justify="center">
+      <NavbarBrand>
+          <a className="font-bold text-inherit antialiased hover:cursor-pointer">
+                      <Image priority className="w-10" src={logo} alt="Dopex Logo" />
+
+          </a>
+        </NavbarBrand>
+        </NavbarContent>
+
       {/* Center Links */}
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
+      <NavbarContent className="hidden lg:flex gap-4" justify="center">
         <NavbarItem>
           <Link href="/" color="foreground">
             Trade
           </Link>
+          
         </NavbarItem>
       </NavbarContent>
 
@@ -58,7 +68,7 @@ export default function App() {
       {/* Hamburger Contents */}
       <NavbarMenu>
         <NavbarMenuItem key="trade">
-          <Link className="w-full" href="#" size="lg">
+          <Link className="w-full" href="#" size="md" color="foreground">
             Trade
           </Link>
         </NavbarMenuItem>

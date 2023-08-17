@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { ColorType, createChart } from "lightweight-charts";
-import { Button, ButtonGroup } from "@nextui-org/react";
+import { Button, ButtonGroup, Tab, Tabs } from "@nextui-org/react";
 
 export default function Chart({ market }) {
-  const [days, setDays] = useState(30);
+  const [days, setDays] = useState(1);
   const [chartData, setChartData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -47,14 +47,14 @@ export default function Chart({ market }) {
       });
 
       const handleResize = () => {
-        console.log("Resizing chart")
+        console.log("Resizing chart");
         if (chartRef.current && chartContainerRef.current) {
-            chartRef.current.applyOptions({
-                width: chartContainerRef.current.clientWidth,
-                height: chartContainerRef.current.clientHeight,
-            });
+          chartRef.current.applyOptions({
+            width: chartContainerRef.current.clientWidth,
+            height: chartContainerRef.current.clientHeight,
+          });
         }
-    };
+      };
 
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
@@ -152,37 +152,19 @@ export default function Chart({ market }) {
           $<span id="priceValue"></span>
         </div>
         {/* Buttons */}
-        <div className="text-sm inline-block float-right">
-          <ButtonGroup radius="full" variant="flat" size="sm" className="">
-            <Button
-              onClick={() => {
-                setDays(1);
-              }}
-            >
-              1D
-            </Button>
-            <Button
-              onClick={() => {
-                setDays(7);
-              }}
-            >
-              1W
-            </Button>
-            <Button
-              onClick={() => {
-                setDays(30);
-              }}
-            >
-              1M
-            </Button>
-            <Button
-              onClick={() => {
-                setDays(90);
-              }}
-            >
-              3M
-            </Button>
-          </ButtonGroup>
+        <div className="text-sm inline-block float-right pr-4">
+          <Tabs key="timeframe"
+            radius="sm"
+            color="secondary"
+            aria-label="timeframe"
+            selectedKey={days}
+            onSelectionChange={setDays}>
+            
+            <Tab key="1" title="1D"></Tab>
+            <Tab key="7" title="1W"></Tab>
+            <Tab key="30" title="1M"></Tab>
+            <Tab key="90" title="3M" ></Tab>
+          </Tabs>
         </div>
       </div>
       <div
