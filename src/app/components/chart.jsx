@@ -80,12 +80,20 @@ export default function Chart({ market }) {
         // Setting the date
         if (param.time) {
           const date = new Date(param.time * 1000); // Convert seconds to milliseconds
-          const dateOptions = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-            const formattedDate = date.toLocaleDateString(undefined, dateOptions);
+          const dateOptions = {
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          };
+          const formattedDate = date.toLocaleDateString(undefined, dateOptions);
           dateValueEl.innerHTML = formattedDate;
 
-          dateTooltipEl.style.left = `${param.point.x}px`;
-          dateTooltipEl.style.top = `${param.point.y}px`; // Display tooltip slightly above crosshair
+          const tooltipWidth = dateTooltipEl.offsetWidth;
+          const tooltipHeight = dateTooltipEl.offsetHeight;
+
+          dateTooltipEl.style.left = `${param.point.x - tooltipWidth / 2}px`;
+          dateTooltipEl.style.top = `${100 - tooltipHeight}px`;
           dateTooltipEl.style.display = "block";
         } else {
           dateTooltipEl.style.display = "none";
