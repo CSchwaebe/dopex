@@ -27,6 +27,6 @@
     },
     
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/assetSelectDropdown.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/assetSelectDropdown.jsx", "src/app/components/trade.jsx"],
   "exclude": ["node_modules"]
 }

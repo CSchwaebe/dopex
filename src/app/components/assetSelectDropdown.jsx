@@ -11,14 +11,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 export default function AssetSelectDropdown({ selectedAsset, setSelectedAsset }) {
-  //const [selectedAsset, setSelectedAsset] = React.useState("Ethereum");
-
-  /*  
-  const selectedAssetValue = React.useMemo(
-    () => Array.from(selectedAsset).join(", ").replaceAll("_", " "),
-    [selectedAsset]
-  );
-  */
+ 
 
   return (
     <Dropdown
