@@ -27,7 +27,7 @@ export default function Trade() {
   return (
     <div className="py-4 px-2 lg:px-8 w-full lg:flex justify-center">
       {/* Left Side */}
-      <div className="w-full md:flex md:justify-center lg:inline-block lg:w-7/12 lg:max-w-2xl xl:w-9/12">
+      <div className="w-full  lg:inline-block lg:w-7/12 lg:max-w-2xl xl:w-9/12">
         {/* Top Row Asset Select */}
         <AssetSelectDropdown
           selectedAsset={selectedAsset}
