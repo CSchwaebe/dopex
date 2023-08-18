@@ -177,7 +177,7 @@ export default function Chart({ market }) {
 
       // Add the new series to the chart
       seriesRef.current = chartRef.current.addLineSeries({
-        color: "#0F2DF5",
+        color: '#6cdefb',//"#0F2DF5",
         lineType: 2,
         priceLineVisible: false,
       });
