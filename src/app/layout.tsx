@@ -7,6 +7,7 @@ import Footer from "./components/footer";
 import '@rainbow-me/rainbowkit/styles.css';
 import type { Metadata } from "next";
 import Background from "./components/background";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "Dopex",
@@ -29,7 +30,9 @@ export default function RootLayout({
             <Navbar />
             <Background>{children}</Background>
             <Footer />
+            <Analytics />
           </Providers>
+
         </body>
     </html>
   );
